@@ -7,8 +7,8 @@ const outputFilePath = `./deployments/${hre.network.name}.json`;
 
 // IR Model Params
 const params = {
-  baseRate: "2",
-  multiplier: "20",
+  baseRate: "0",
+  multiplier: "1500",
 }
 
 async function main() {
