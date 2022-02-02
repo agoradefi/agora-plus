@@ -5,11 +5,11 @@ const CTOKEN_DECIMALS = 8;
 
 // CToken Params
 const params = {
-  underlying: "0x41385Fe12F33cd19DdA784e073ae459050717EEB",
+  underlying: "0x34F88c1137E6986c7eb864054688311960C2b12b",
   comptroller: "0x92DcecEaF4c0fDA373899FEea00032E8E8Da58Da",
   irModel: "0x32a1bCC329F9bfE72EdAe9bFC4d7B1bE3A9B6a4D",
-  name: "apPuff Netswap METIS-m.USDT",
-  symbol: "appuffNetswapMETIS-m.USDT",
+  name: "apPuff Netswap WETH-METIS",
+  symbol: "appuffNetswapWETH-METIS",
   decimals: CTOKEN_DECIMALS,
 }
 
@@ -41,20 +41,20 @@ async function main() {
   console.log("calling unitrollerProxy._supportMarket()");
   await unitrollerProxy._supportMarket(cErc20Immutable.address);
 
-  await cErc20Immutable.deployTransaction.wait(15);
-  await verifyContract(
-    cErc20Immutable.address,
-    [
-      params.underlying,
-      params.comptroller,
-      params.irModel,
-      initialExcRateMantissaStr,
-      params.name,
-      params.symbol,
-      params.decimals,
-      deployer.address
-    ]
-  );
+  // await cErc20Immutable.deployTransaction.wait(15);
+  // await verifyContract(
+  //   cErc20Immutable.address,
+  //   [
+  //     params.underlying,
+  //     params.comptroller,
+  //     params.irModel,
+  //     initialExcRateMantissaStr,
+  //     params.name,
+  //     params.symbol,
+  //     params.decimals,
+  //     deployer.address
+  //   ]
+  // );
 }
 
 const verifyContract = async (contractAddress: string, constructorArgs: any) => {
